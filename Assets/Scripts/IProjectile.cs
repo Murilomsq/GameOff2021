@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IProjectile
 {
-    public void Hit();
+    public void Hit(float amount);
 }

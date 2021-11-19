@@ -61,6 +61,12 @@
      <Compile Include="Assets\Scripts\PlayerLookAtMouse.cs" />
      <Compile Include="Assets\Scripts\BaseProjectile.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
+     <Compile Include="Assets\Scripts\Weapons\ChargeFireball.cs" />
+     <Compile Include="Assets\Scripts\Weapons\FastShooting.cs" />
+     <Compile Include="Assets\Scripts\Weapons\ShotGun.cs" />
+     <Compile Include="Assets\Scripts\LifeTime.cs" />
+     <Compile Include="Assets\Scripts\Interfaces\IDamageable.cs" />
+     <Compile Include="Assets\Scripts\Enemy1Script.cs" />
      <None Include="Assets\SkySerie Freebie\Hdri setup.txt" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

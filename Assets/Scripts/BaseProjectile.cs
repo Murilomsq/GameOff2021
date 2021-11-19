@@ -1,22 +1,26 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Newtonsoft.Json.Serialization;
 using UnityEngine;
 
-public class BaseProjectile : MonoBehaviour, IProjectile
+public class BaseProjectile : MonoBehaviour
 {
     [SerializeField] private float speed = 10;
     [SerializeField] private float lifeTime = 10;
+    [SerializeField] private float timeAfterFinished;
+    [SerializeField] private ParticleSystem onTriggerParticles;
+    private bool isBeeingDestroyed = false;
     
     public IEnumerator Lifetime()
     {
         yield return new WaitForSeconds(lifeTime);
-        Destroy(gameObject);
-    }
-    
-    public void Hit()
-    {
-        
+        if (onTriggerParticles != null)
+        {
+            onTriggerParticles.Play();
+        }
+        isBeeingDestroyed = true;
+        Destroy(gameObject, timeAfterFinished);
     }
 
     private void Start()
@@ -26,6 +30,7 @@ public class BaseProjectile : MonoBehaviour, IProjectile
 
     private void FixedUpdate()
     {
-        transform.Translate(transform.forward * Time.deltaTime * speed, Space.World);
+        if(!isBeeingDestroyed)
+            transform.Translate(transform.forward * Time.deltaTime * speed, Space.World);
     }
 }
