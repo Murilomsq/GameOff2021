@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChargeFireball : MonoBehaviour
+public class ChargeFireball : MonoBehaviour, IEquippable
 {
     [SerializeField] private CharacterController c;
     [SerializeField] private GameObject projectile;
@@ -13,10 +13,10 @@ public class ChargeFireball : MonoBehaviour
     // This looks so damn unneficient, but I'll pretend im not the author of this
     private IEnumerator Knockback()
     {
-        for (int i = 0; i < 15; i++)
+        for (int i = 0; i < 5; i++)
         {
-            c.Move(-transform.forward * 30.0f * Time.deltaTime);
-            yield return new WaitForEndOfFrame();
+            c.Move(-transform.forward * 0.3f);
+            yield return new WaitForSeconds(0.1f/5);
         }
     }
     private IEnumerator ChargeRifle()
@@ -29,6 +29,17 @@ public class ChargeFireball : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         shotPower = 2;
         settingsParticle.startColor = new ParticleSystem.MinMaxGradient(new Color(1,0,0,0.3f));
+    }
+    
+    public void Equip()
+    {
+        this.enabled = true;
+    }
+
+    public void Unequip()
+    {
+        partSys.Stop();
+        this.enabled = false;
     }
 
     private void Start()

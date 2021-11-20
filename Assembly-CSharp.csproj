@@ -52,21 +52,22 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Enemy1Script.cs" />
+     <Compile Include="Assets\Scripts\Weapons\FastShooting.cs" />
      <Compile Include="Assets\Scripts\PlayerAnimationController.cs" />
      <Compile Include="Assets\Scripts\PlayerInteractions.cs" />
      <Compile Include="Assets\Scripts\IProjectile.cs" />
      <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+     <Compile Include="Assets\Scripts\Weapons\ShotGun.cs" />
      <Compile Include="Assets\Scripts\CharacterMovement.cs" />
      <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
+     <Compile Include="Assets\Scripts\LifeTime.cs" />
      <Compile Include="Assets\Scripts\PlayerLookAtMouse.cs" />
      <Compile Include="Assets\Scripts\BaseProjectile.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\Weapons\ChargeFireball.cs" />
-     <Compile Include="Assets\Scripts\Weapons\FastShooting.cs" />
-     <Compile Include="Assets\Scripts\Weapons\ShotGun.cs" />
-     <Compile Include="Assets\Scripts\LifeTime.cs" />
      <Compile Include="Assets\Scripts\Interfaces\IDamageable.cs" />
-     <Compile Include="Assets\Scripts\Enemy1Script.cs" />
+     <Compile Include="Assets\Scripts\Weapons\Interfaces\IEquippable.cs" />
      <None Include="Assets\SkySerie Freebie\Hdri setup.txt" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
@@ -706,6 +707,21 @@
  </Reference>
  <Reference Include="Unity.Mathematics">
  <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.InternalAPIEditorBridge.003">
+ <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.003.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.VectorGraphics">
+ <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.VectorGraphics.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.InternalAPIEngineBridge.003">
+ <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.003.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.2D.Sprite.Editor">
+ <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.VectorGraphics.Editor">
+ <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.VectorGraphics.Editor.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

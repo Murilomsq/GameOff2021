@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerLookAtMouse : MonoBehaviour
 {
     public Camera auxCam;
-    Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
+    Plane groundPlane = new Plane(Vector3.up, new Vector3(0,1.12f,0));
     void FixedUpdate()
     {
         Ray cameraRay = Camera.main.ScreenPointToRay(Input.mousePosition);

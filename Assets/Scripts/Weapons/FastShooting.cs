@@ -4,13 +4,23 @@ using System.Collections.Generic;
 using UnityEditor.Rendering;
 using UnityEngine;
 
-public class FastShooting : MonoBehaviour
+public class FastShooting : MonoBehaviour, IEquippable
 {
     [SerializeField] private CharacterController c;
     [SerializeField] private GameObject projectile;
     [SerializeField] private Transform muzzle;
     [SerializeField] private float fireRate = 0.2f;
     private float cdTimer = 0.0f;
+    
+    public void Equip()
+    {
+        this.enabled = true;
+    }
+
+    public void Unequip()
+    {
+        this.enabled = false;
+    }
 
     private void Update()
     {

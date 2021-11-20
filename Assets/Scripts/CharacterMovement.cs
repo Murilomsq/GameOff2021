@@ -17,12 +17,13 @@ public class CharacterMovement : MonoBehaviour
     private IEnumerator Dash()
     {
         dashParticles.Play();
+        Vector3 V3 = transform.position;
         for (int i = 0; i < 16; i++)
         {
-            c.Move(v3.normalized * 35.0f * Time.deltaTime); 
-            print((v3 * 35.0f * Time.deltaTime).magnitude);
+            c.Move(v3.normalized * 0.3f);
             yield return new WaitForSeconds(0.1f/16);
         }
+        print((V3-transform.position).magnitude);
         dashParticles.Stop();
         
     }

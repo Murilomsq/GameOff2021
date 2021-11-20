@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShotGun : MonoBehaviour
+public class ShotGun : MonoBehaviour, IEquippable
 {
     [SerializeField] private CharacterController c;
     [SerializeField] private GameObject projectile;
@@ -10,7 +10,16 @@ public class ShotGun : MonoBehaviour
     [SerializeField] private ParticleSystem bulletPart;
     [SerializeField] private float fireRate = 0.2f;
     private float cdTimer = 0.0f;
+    
+    public void Equip()
+    {
+        this.enabled = true;
+    }
 
+    public void Unequip()
+    {
+        this.enabled = false;
+    }
     private void Update()
     {
         cdTimer += Time.deltaTime;
