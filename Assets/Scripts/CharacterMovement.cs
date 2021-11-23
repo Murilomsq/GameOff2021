@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterMovement : MonoBehaviour
 {
@@ -13,6 +14,11 @@ public class CharacterMovement : MonoBehaviour
     private Vector3 v3;
     [SerializeField] private ParticleSystem dashParticles;
     
+    [Header("Dash cooldown")] 
+    [SerializeField] private Image dashCdImage;
+    [SerializeField] private float dashCD = 1.0f;
+    private float dashAvailable = 0.0f;
+    
 
     private IEnumerator Dash()
     {
@@ -23,9 +29,17 @@ public class CharacterMovement : MonoBehaviour
             c.Move(v3.normalized * 0.3f);
             yield return new WaitForSeconds(0.1f/16);
         }
-        print((V3-transform.position).magnitude);
         dashParticles.Stop();
         
+    }
+    public IEnumerator FillCooldown()
+    {
+        for (int i = 0; i < 16; i++)
+        {
+            dashCdImage.fillAmount = -(i / 16.0f) + 1.0f;
+            yield return new WaitForSeconds(dashCD/16);
+        }
+        dashCdImage.fillAmount = 0.0f;
     }
 
     private void Start()
@@ -35,10 +49,12 @@ public class CharacterMovement : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        dashAvailable += Time.deltaTime;
+        if (Input.GetKeyDown(KeyCode.LeftShift) && dashAvailable >= dashCD)
         {
-            print("a");
+            dashAvailable = 0.0f;
             StartCoroutine(Dash());
+            StartCoroutine(FillCooldown());
         }
     }
 

@@ -7,7 +7,7 @@ using UnityEngine.AI;
 
 public class Enemy1Script : MonoBehaviour, IDamageable
 {
-    private float health;
+    [SerializeField] private float health;
     [SerializeField] private float aggroRadius = 20.0f;
     private Transform target;   // Player transform
     private PlayerInteractions playerInteractions;   // Player health management
@@ -16,14 +16,12 @@ public class Enemy1Script : MonoBehaviour, IDamageable
     [SerializeField] private float hitCooldown;
     private float hitAvailable;
 
-
     public void Damage(float amount)
     {
         health -= amount;
         if (health <= 0)
         {
-            // Game over
-            print("gameover");
+            Destroy(gameObject);
         }
     }
     private void OnDrawGizmosSelected()
@@ -44,7 +42,7 @@ public class Enemy1Script : MonoBehaviour, IDamageable
         float dist = (target.position - transform.position).magnitude;
         hitAvailable += Time.deltaTime;
 
-        if (dist <= aggroRadius)
+        if (dist <= aggroRadius && hitAvailable >= hitCooldown)
         {
             nma.SetDestination(target.position);
             if (dist <= nma.stoppingDistance && hitAvailable >= hitCooldown)

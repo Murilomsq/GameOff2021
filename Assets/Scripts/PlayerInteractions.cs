@@ -35,18 +35,51 @@ public class PlayerInteractions : MonoBehaviour
     [SerializeField] private Sprite activeImg;
     [SerializeField] private Sprite unactiveImg;
 
-    private int health = 3;
+    [Header("Health sprites")] 
+    [SerializeField] private Image battery;
+    [SerializeField] private Sprite health4;
+    [SerializeField] private Sprite health3;
+    [SerializeField] private Sprite health2;
+    [SerializeField] private Sprite health1;
+    [SerializeField] private Sprite health0;
+
+    // Props
+    private int health = 4;
+
+
     public void Damage()
     {
         health--;
+        SetHealthImg();
         if (health == 0)
         {
             print("GAME OVER");
             // Game over
         }
     }
-    
-    
+
+    public void SetHealthImg()
+    {
+        switch (health)
+        {
+            case 0:
+                battery.sprite = health0;
+                break;
+            case 1:
+                battery.sprite = health1;
+                break;
+            case 2:
+                battery.sprite = health2;
+                break;
+            case 3:
+                battery.sprite = health3;
+                break;
+            case 4:
+                battery.sprite = health4;
+                break;
+        }
+    }
+
     // Used to select player weapons at the beggining of the game
     public void EquipPlayerWeapon(int i, int j)
     {

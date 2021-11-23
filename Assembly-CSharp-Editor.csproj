@@ -52,6 +52,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\LeanTween\Editor\LeanTweenDocumentationEditor.cs" />
      <Compile Include="Assets\TutorialInfo\Scripts\Editor\ReadmeEditor.cs" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
@@ -653,17 +654,14 @@
  <Reference Include="UnityEditor.TestRunner">
  <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
  </Reference>
- <Reference Include="Unity.ShaderGraph.Editor">
- <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
- </Reference>
  <Reference Include="Unity.VSCode.Editor">
  <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.InternalAPIEditorBridge.003">
+ <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.003.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.RenderPipelines.Universal.Shaders">
  <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
- </Reference>
- <Reference Include="Unity.RenderPipelines.Universal.Editor">
- <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipelines.Universal.Runtime">
  <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
@@ -674,26 +672,23 @@
  <Reference Include="Unity.VisualStudio.Editor">
  <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
  </Reference>
- <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
- <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Timeline.Editor">
- <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+ <Reference Include="Unity.VectorGraphics">
+ <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.VectorGraphics.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline">
  <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
  </Reference>
- <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
- <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
- </Reference>
  <Reference Include="Unity.TextMeshPro">
  <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
- <Reference Include="Unity.Mathematics.Editor">
- <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
+ <Reference Include="Unity.InternalAPIEngineBridge.003">
+ <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.003.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Searcher.Editor">
  <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.2D.Sprite.Editor">
+ <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipelines.Core.Runtime">
  <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
@@ -713,26 +708,32 @@
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
- <Reference Include="Unity.RenderPipelines.Core.Editor">
- <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
- </Reference>
  <Reference Include="Unity.Mathematics">
  <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
  </Reference>
- <Reference Include="Unity.InternalAPIEditorBridge.003">
- <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.003.dll</HintPath>
+ <Reference Include="Unity.ShaderGraph.Editor">
+ <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
  </Reference>
- <Reference Include="Unity.VectorGraphics">
- <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.VectorGraphics.dll</HintPath>
+ <Reference Include="Unity.RenderPipelines.Universal.Editor">
+ <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
  </Reference>
- <Reference Include="Unity.InternalAPIEngineBridge.003">
- <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.003.dll</HintPath>
+ <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
+ <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
  </Reference>
- <Reference Include="Unity.2D.Sprite.Editor">
- <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+ <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
+ <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Timeline.Editor">
+ <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VectorGraphics.Editor">
  <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.VectorGraphics.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Mathematics.Editor">
+ <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.RenderPipelines.Core.Editor">
+ <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

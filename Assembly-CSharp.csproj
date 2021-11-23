@@ -52,22 +52,58 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\LeanTween\Framework\LeanTween.cs" />
+     <Compile Include="Assets\LeanTween\Examples\Scripts\LogoCinematic.cs" />
+     <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralCameraShake.cs" />
+     <Compile Include="Assets\LeanTween\Framework\LTDescr.cs" />
+     <Compile Include="Assets\LeanTween\Framework\LeanTweenExt.cs" />
      <Compile Include="Assets\Scripts\Enemy1Script.cs" />
+     <Compile Include="Assets\LeanTween\Examples\Scripts\TestingUnitTests.cs" />
+     <Compile Include="Assets\LeanTween\Framework\LTSeq.cs" />
+     <Compile Include="Assets\LeanTween\Examples\Archived\TestingPunch.cs" />
      <Compile Include="Assets\Scripts\Weapons\FastShooting.cs" />
+     <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralUISpace.cs" />
+     <Compile Include="Assets\LeanTween\Framework\LeanAudio.cs" />
      <Compile Include="Assets\Scripts\PlayerAnimationController.cs" />
      <Compile Include="Assets\Scripts\PlayerInteractions.cs" />
      <Compile Include="Assets\Scripts\IProjectile.cs" />
      <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+     <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralSimpleUI.cs" />
+     <Compile Include="Assets\LeanTween\Examples\Scripts\PathSplineEndless.cs" />
+     <Compile Include="Assets\LeanTween\Examples\Scripts\PathBezier.cs" />
+     <Compile Include="Assets\LeanTween\Examples\Scripts\PathSpline.cs" />
+     <Compile Include="Assets\Scripts\Weapons\Interfaces\IEquippable.cs" />
+     <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralAdvancedTechniques.cs" />
+     <Compile Include="Assets\LeanTween\Framework\LeanSmooth.cs" />
+     <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralBasics2d.cs" />
+     <Compile Include="Assets\LeanTween\Examples\Scripts\PathSplines.cs" />
      <Compile Include="Assets\Scripts\Weapons\ShotGun.cs" />
      <Compile Include="Assets\Scripts\CharacterMovement.cs" />
+     <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralEventsListeners.cs" />
+     <Compile Include="Assets\LeanTween\Examples\Scripts\PathSplineTrack.cs" />
      <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
+     <Compile Include="Assets\LeanTween\Framework\LeanTest.cs" />
+     <Compile Include="Assets\LeanTween\Examples\Scripts\TestingZLegacy.cs" />
+     <Compile Include="Assets\LeanTween\Examples\Scripts\PathSpline2d.cs" />
+     <Compile Include="Assets\LeanTween\Examples\Scripts\TestingZLegacyExt.cs" />
      <Compile Include="Assets\Scripts\LifeTime.cs" />
+     <Compile Include="Assets\LeanTween\Examples\Scripts\PathSplinePerformance.cs" />
      <Compile Include="Assets\Scripts\PlayerLookAtMouse.cs" />
+     <Compile Include="Assets\LeanTween\Examples\Scripts\PathBezier2d.cs" />
      <Compile Include="Assets\Scripts\BaseProjectile.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
+     <Compile Include="Assets\LeanTween\Framework\LTDescrOptional.cs" />
+     <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralEasingTypes.cs" />
      <Compile Include="Assets\Scripts\Weapons\ChargeFireball.cs" />
+     <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralSequencer.cs" />
+     <Compile Include="Assets\LeanTween\Examples\Archived\OldGUIExamplesCS.cs" />
+     <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralBasic.cs" />
      <Compile Include="Assets\Scripts\Interfaces\IDamageable.cs" />
-     <Compile Include="Assets\Scripts\Weapons\Interfaces\IEquippable.cs" />
+     <Compile Include="Assets\LeanTween\Examples\Archived\TestingRigidbodyCS.cs" />
+     <Compile Include="Assets\LeanTween\Examples\Scripts\Following.cs" />
+     <None Include="Assets\LeanTween\ReadMe.txt" />
+     <None Include="Assets\LeanTween\License.txt" />
+     <None Include="Assets\LeanTween\Examples\Archived\2dUnlitWithFade.shader" />
      <None Include="Assets\SkySerie Freebie\Hdri setup.txt" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
@@ -642,17 +678,14 @@
  <Reference Include="System.Xml.XPath.XDocument">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.12f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/Facades/System.Xml.XPath.XDocument.dll</HintPath>
  </Reference>
- <Reference Include="Unity.ShaderGraph.Editor">
- <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
- </Reference>
  <Reference Include="Unity.VSCode.Editor">
  <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.InternalAPIEditorBridge.003">
+ <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.003.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.RenderPipelines.Universal.Shaders">
  <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
- </Reference>
- <Reference Include="Unity.RenderPipelines.Universal.Editor">
- <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipelines.Universal.Runtime">
  <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
@@ -663,26 +696,23 @@
  <Reference Include="Unity.VisualStudio.Editor">
  <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
  </Reference>
- <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
- <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Timeline.Editor">
- <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+ <Reference Include="Unity.VectorGraphics">
+ <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.VectorGraphics.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline">
  <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
  </Reference>
- <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
- <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
- </Reference>
  <Reference Include="Unity.TextMeshPro">
  <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
- <Reference Include="Unity.Mathematics.Editor">
- <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
+ <Reference Include="Unity.InternalAPIEngineBridge.003">
+ <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.003.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Searcher.Editor">
  <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.Searcher.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.2D.Sprite.Editor">
+ <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.RenderPipelines.Core.Runtime">
  <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
@@ -702,26 +732,32 @@
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
- <Reference Include="Unity.RenderPipelines.Core.Editor">
- <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
- </Reference>
  <Reference Include="Unity.Mathematics">
  <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
  </Reference>
- <Reference Include="Unity.InternalAPIEditorBridge.003">
- <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.003.dll</HintPath>
+ <Reference Include="Unity.ShaderGraph.Editor">
+ <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
  </Reference>
- <Reference Include="Unity.VectorGraphics">
- <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.VectorGraphics.dll</HintPath>
+ <Reference Include="Unity.RenderPipelines.Universal.Editor">
+ <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Editor.dll</HintPath>
  </Reference>
- <Reference Include="Unity.InternalAPIEngineBridge.003">
- <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.003.dll</HintPath>
+ <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
+ <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
  </Reference>
- <Reference Include="Unity.2D.Sprite.Editor">
- <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+ <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
+ <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Timeline.Editor">
+ <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VectorGraphics.Editor">
  <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.VectorGraphics.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Mathematics.Editor">
+ <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.RenderPipelines.Core.Editor">
+ <HintPath>C:/Users/muted/Desktop/Unity assets/02/demos/Game Off 2021/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

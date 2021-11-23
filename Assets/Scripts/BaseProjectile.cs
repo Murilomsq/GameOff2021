@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Remoting.Messaging;
 using Newtonsoft.Json.Serialization;
 using UnityEngine;
 
@@ -11,7 +12,9 @@ public class BaseProjectile : MonoBehaviour
     [SerializeField] private float timeAfterFinished;
     [SerializeField] private ParticleSystem onTriggerParticles;
     private bool isBeeingDestroyed = false;
-    
+    [Header("Props")]
+    [SerializeField] private float damage;
+
     public IEnumerator Lifetime()
     {
         yield return new WaitForSeconds(lifeTime);
@@ -21,6 +24,24 @@ public class BaseProjectile : MonoBehaviour
         }
         isBeeingDestroyed = true;
         Destroy(gameObject, timeAfterFinished);
+    }
+
+    public void DestroyProj()
+    {
+        if (onTriggerParticles != null)
+        {
+            onTriggerParticles.Play();
+        }
+        isBeeingDestroyed = true;
+        Destroy(gameObject, timeAfterFinished);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        print("aa");
+        other.gameObject.TryGetComponent<IDamageable>(out IDamageable enemy);
+        enemy.Damage(damage);
+        DestroyProj();
     }
 
     private void Start()

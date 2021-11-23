@@ -4896,7 +4896,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5113560625540800194}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -4917,3 +4917,4 @@ MonoBehaviour:
   lifeTime: 63.8
   timeAfterFinished: 0
   onTriggerParticles: {fileID: 0}
+  damage: 4
