@@ -4915,6 +4915,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canHitPlayer: 0
+  canHitEnemy: 1
   speed: 30.59
   lifeTime: 0.5
   timeAfterFinished: 0.1

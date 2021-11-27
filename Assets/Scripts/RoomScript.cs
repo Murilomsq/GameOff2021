@@ -5,19 +5,27 @@ using UnityEngine;
 
 public class RoomScript : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> enemies;
-
+    [SerializeField] private List<GameObject> waves;
+    [SerializeField] private List<GameObject> blockers;
+    [SerializeField] private int wave = 0;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.TryGetComponent<PlayerInteractions>(out PlayerInteractions p))
         {
-            // Start wave
+            foreach (GameObject blocker in blockers)
+            {
+                blocker.SetActive(true);
+            }
+            waves[wave].SetActive(true);
         }
-        
     }
 
-    private void Update()
+    private void Start()
     {
+        foreach (GameObject blocker in blockers)
+        {
+            blocker.SetActive(false);
+        }
     }
 }

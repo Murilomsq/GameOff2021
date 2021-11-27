@@ -109,8 +109,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 075d84ffac5bfb74088bfc88782b9f15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canHitPlayer: 0
+  canHitEnemy: 1
   speed: 25.45
   lifeTime: 63.8
+  timeAfterFinished: 0
+  onTriggerParticles: {fileID: 0}
+  damage: 0
 --- !u!1 &9086356598393687501
 GameObject:
   m_ObjectHideFlags: 0

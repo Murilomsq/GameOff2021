@@ -54,6 +54,7 @@ public class EnemyStand : MonoBehaviour, IDamageable
             {
                 Debug.Log("asadasdasdasdasdadss");
                 Instantiate(projectile, muzzle.position, transform.rotation);
+                animator.Play("Fire");
                 yield return new WaitForSeconds(fireRate);
             }
             yield return new WaitForSeconds(shootingCooldown);
