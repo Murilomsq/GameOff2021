@@ -7,11 +7,19 @@ using UnityEngine.AI;
 
 public class Enemy1Script : MonoBehaviour, IDamageable
 {
-    [SerializeField] private float health;
+    [SerializeField] private GameObject enemyObj;
+    [SerializeField] private float maxHealth; 
+    private float health;
     [SerializeField] private float aggroRadius = 20.0f;
+    [SerializeField] private SpriteRenderer healthImg;
+    [SerializeField] private Animator animator;
+    
+
     private Transform target;   // Player transform
     private PlayerInteractions playerInteractions;   // Player health management
     private NavMeshAgent nma;
+
+    private float startingSize;
 
     [SerializeField] private float hitCooldown;
     private float hitAvailable;
@@ -19,9 +27,15 @@ public class Enemy1Script : MonoBehaviour, IDamageable
     public void Damage(float amount)
     {
         health -= amount;
+        Transform ht = healthImg.transform;
+        ht.localScale = new Vector3((health / maxHealth) * startingSize, ht.localScale.y, 1);
+        Vector3 lp = ht.localPosition;
+        Debug.Log(healthImg.size.x);
+        lp = new Vector3(((amount/maxHealth)*healthImg.size.x* startingSize * 0.5f), 0, 0);
+        ht.Translate(lp, Space.Self);
         if (health <= 0)
         {
-            Destroy(gameObject);
+            Destroy(enemyObj);
         }
     }
     private void OnDrawGizmosSelected()
@@ -32,9 +46,11 @@ public class Enemy1Script : MonoBehaviour, IDamageable
 
     private void Start()
     {
+        health = maxHealth;
         target = PlayerInteractions.Instance.transform;
         playerInteractions = PlayerInteractions.Instance;
         nma = GetComponent<NavMeshAgent>();
+        startingSize = healthImg.transform.localScale.x;
     }
 
     private void Update()
@@ -49,6 +65,7 @@ public class Enemy1Script : MonoBehaviour, IDamageable
             {
                 hitAvailable = 0;
                 Debug.Log("Hit");
+                animator.SetTrigger("Hit");
                 playerInteractions.Damage();
             }
         }

@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class BaseProjectile : MonoBehaviour
 {
+    [SerializeField] private bool canHitPlayer;
     [SerializeField] private float speed = 10;
     [SerializeField] private float lifeTime = 10;
     [SerializeField] private float timeAfterFinished;
@@ -39,8 +40,15 @@ public class BaseProjectile : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         print("aa");
-        other.gameObject.TryGetComponent<IDamageable>(out IDamageable enemy);
-        enemy.Damage(damage);
+        if (other.gameObject.TryGetComponent<IDamageable>(out IDamageable enemy))
+        {
+            enemy.Damage(damage);
+        }
+
+        if (other.gameObject.TryGetComponent<PlayerInteractions>(out PlayerInteractions player) && canHitPlayer)
+        {
+            player.Damage();
+        }
         DestroyProj();
     }
 

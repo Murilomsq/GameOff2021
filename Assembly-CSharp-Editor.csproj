@@ -54,6 +54,7 @@
   <ItemGroup>
      <Compile Include="Assets\LeanTween\Editor\LeanTweenDocumentationEditor.cs" />
      <Compile Include="Assets\TutorialInfo\Scripts\Editor\ReadmeEditor.cs" />
+     <Compile Include="Assets\ParticleShadersVol1\Editor\EMMaterialInspector.cs" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.12f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>

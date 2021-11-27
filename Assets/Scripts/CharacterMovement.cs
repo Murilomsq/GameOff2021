@@ -12,6 +12,7 @@ public class CharacterMovement : MonoBehaviour
     private float i;
     private float j;
     private Vector3 v3;
+    private Vector3 velocity;
     [SerializeField] private ParticleSystem dashParticles;
     
     [Header("Dash cooldown")] 
@@ -64,16 +65,22 @@ public class CharacterMovement : MonoBehaviour
         j = Input.GetAxis("Horizontal");
 
         v3 = new Vector3(-i - j, 0, -i + j);
-        if (i != 0 || j != 0)
+
+        if (v3.magnitude >= 1)
         {
-            if (v3.magnitude >= 1)
-            {
-                c.Move(v3.normalized * speed * Time.deltaTime); 
-            }
-            else
-            {
-                c.Move(v3 * speed * Time.deltaTime);
-            }
+            c.Move(new Vector3(v3.normalized.x*speed, 0, v3.normalized.z*speed ) * Time.deltaTime); 
         }
+        else
+        {
+            v3 *= speed;
+            c.Move(v3 * Time.deltaTime);
+        }
+
+        if (c.isGrounded)
+        {
+            velocity.y = 0;
+        }
+        velocity.y -= 100.0f * Time.deltaTime;
+        c.Move(velocity * Time.deltaTime);
     }
 }
