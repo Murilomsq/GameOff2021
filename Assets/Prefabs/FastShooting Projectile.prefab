@@ -4920,7 +4920,7 @@ MonoBehaviour:
   lifeTime: 0.5
   timeAfterFinished: 0.1
   onTriggerParticles: {fileID: 3991927532598547651}
-  damage: 5
+  damage: 156.51
 --- !u!1 &982853232431425926
 GameObject:
   m_ObjectHideFlags: 0

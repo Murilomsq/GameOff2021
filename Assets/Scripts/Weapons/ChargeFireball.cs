@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class ChargeFireball : MonoBehaviour, IEquippable
 {
+    [SerializeField] private float chargeTimer;
+    [SerializeField] private float bulletDmg;
+    [SerializeField] private float bulletDmgUpgrade;
+    [SerializeField] private float speed;
     [SerializeField] private CharacterController c;
     [SerializeField] private GameObject projectile;
     [SerializeField] private Transform muzzle;
@@ -23,10 +27,10 @@ public class ChargeFireball : MonoBehaviour, IEquippable
     {
         shotPower = 0;
         settingsParticle.startColor = new ParticleSystem.MinMaxGradient(new Color(0, 1, 0, 0.3f));
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(chargeTimer);
         shotPower = 1;
         settingsParticle.startColor = new ParticleSystem.MinMaxGradient(new Color(0,0,1, 0.3f));
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(chargeTimer);
         shotPower = 2;
         settingsParticle.startColor = new ParticleSystem.MinMaxGradient(new Color(1,0,0,0.3f));
     }
@@ -40,6 +44,11 @@ public class ChargeFireball : MonoBehaviour, IEquippable
     {
         partSys.Stop();
         this.enabled = false;
+    }
+    public void UpgradeWeapon()
+    {
+        bulletDmg += bulletDmgUpgrade;
+        speed += 10.0f;
     }
 
     private void Start()
@@ -62,7 +71,9 @@ public class ChargeFireball : MonoBehaviour, IEquippable
                     break;
                 case 2:
                     shotPower = 0;
-                    Instantiate(projectile, muzzle.position, transform.rotation);
+                    BaseProjectile proj = Instantiate(projectile, muzzle.position, transform.rotation).GetComponent<BaseProjectile>();
+                    proj.damage = bulletDmg;
+                    proj.speed = speed;
                     StartCoroutine(Knockback());
                     break;
             }

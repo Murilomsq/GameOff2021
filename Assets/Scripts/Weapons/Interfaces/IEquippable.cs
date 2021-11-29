@@ -6,4 +6,5 @@ public interface IEquippable
 {
     void Equip();
     void Unequip();
+    void UpgradeWeapon();
 }

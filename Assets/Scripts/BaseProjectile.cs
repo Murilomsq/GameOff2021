@@ -9,13 +9,13 @@ public class BaseProjectile : MonoBehaviour
 {
     [SerializeField] private bool canHitPlayer;
     [SerializeField] private bool canHitEnemy;
-    [SerializeField] private float speed = 10;
-    [SerializeField] private float lifeTime = 10;
+    [SerializeField] public float speed = 10;
+    [SerializeField] public float lifeTime = 10;
     [SerializeField] private float timeAfterFinished;
     [SerializeField] private ParticleSystem onTriggerParticles;
     private bool isBeeingDestroyed = false;
     [Header("Props")]
-    [SerializeField] private float damage;
+    [SerializeField] public float damage;
 
     public IEnumerator Lifetime()
     {
@@ -40,7 +40,6 @@ public class BaseProjectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        print("aa");
         if (other.gameObject.TryGetComponent<IDamageable>(out IDamageable enemy) && canHitEnemy)
         {
             enemy.Damage(damage);
@@ -52,7 +51,7 @@ public class BaseProjectile : MonoBehaviour
             player.Damage();
             DestroyProj();
         }
-        
+
     }
 
     private void Start()

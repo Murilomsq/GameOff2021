@@ -30,7 +30,6 @@ public class Enemy1Script : MonoBehaviour, IDamageable
         Transform ht = healthImg.transform;
         ht.localScale = new Vector3((health / maxHealth) * startingSize, ht.localScale.y, 1);
         Vector3 lp = ht.localPosition;
-        Debug.Log(healthImg.size.x);
         lp = new Vector3(((amount/maxHealth)*healthImg.size.x* startingSize * 0.5f), 0, 0);
         ht.Translate(lp, Space.Self);
         if (health <= 0)
@@ -51,6 +50,7 @@ public class Enemy1Script : MonoBehaviour, IDamageable
         playerInteractions = PlayerInteractions.Instance;
         nma = GetComponent<NavMeshAgent>();
         startingSize = healthImg.transform.localScale.x;
+        hitAvailable = hitCooldown;
     }
 
     private void Update()

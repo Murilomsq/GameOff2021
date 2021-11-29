@@ -22,9 +22,10 @@ public class PlayerInteractions : MonoBehaviour
     }
     #endregion
 
+    public CharacterMovement cm;
     [SerializeField] private GameObject weaponHolder;
     private IEquippable[] weapons = new IEquippable[3];
-    private IEquippable[] weaponsEquipped = new IEquippable[2];
+    public IEquippable[] weaponsEquipped = new IEquippable[2];
 
     private int numOfWeaps = 0;
     
@@ -34,14 +35,19 @@ public class PlayerInteractions : MonoBehaviour
     public Image weap1Img;
     [SerializeField] private Sprite activeImg;
     [SerializeField] private Sprite unactiveImg;
+    
 
     [Header("Health sprites")] 
     [SerializeField] private Image battery;
+    [SerializeField] private Image weap0;
+    [SerializeField] private Image weap1;
     [SerializeField] private Sprite health4;
     [SerializeField] private Sprite health3;
     [SerializeField] private Sprite health2;
     [SerializeField] private Sprite health1;
     [SerializeField] private Sprite health0;
+    [SerializeField] private Sprite[] WeapImg;
+
 
     // Props
     private int health = 4;
@@ -58,7 +64,13 @@ public class PlayerInteractions : MonoBehaviour
         }
     }
 
-    public void SetHealthImg()
+    public void HealAll()
+    {
+        health = 4;
+        SetHealthImg();
+    }
+
+    public void SetHealthImg() // This looks so stupid why didn't I use a damn array?
     {
         switch (health)
         {
@@ -83,8 +95,10 @@ public class PlayerInteractions : MonoBehaviour
     // Used to select player weapons at the beggining of the game
     public void EquipPlayerWeapon(int i, int j)
     {
-        weaponsEquipped[numOfWeaps] = weapons[i];
-        weaponsEquipped[numOfWeaps + 1] = weapons[j];
+        weap0.sprite = WeapImg[i];
+        weap1.sprite = WeapImg[j];
+        weaponsEquipped[0] = weapons[i];
+        weaponsEquipped[1] = weapons[j];
     }
 
     public void SwitchWeapTo(int weap)
@@ -110,13 +124,9 @@ public class PlayerInteractions : MonoBehaviour
     {
         weapons[0] = weaponHolder.GetComponent<ChargeFireball>();
         weapons[1] = weaponHolder.GetComponent<FastShooting>();
-        weapons[2] = weaponHolder.GetComponent<ShotGun>();
-
-        Debug.Log(weapons[0]);
-        Debug.Log(weapons[1]);
-        Debug.Log(weapons[2]);
-        EquipPlayerWeapon(0, 1);
-
+        weapons[2] = weaponHolder.GetComponent<BulletRainScript>();
+        
+        EquipPlayerWeapon(0, 2);
     }
 
     private void Update()

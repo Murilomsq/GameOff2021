@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class FastShooting : MonoBehaviour, IEquippable
 {
+    [SerializeField] private float damage;
+    [SerializeField] private float damageUpgrade;
+    [SerializeField] private float speed;
     [SerializeField] private CharacterController c;
     [SerializeField] private GameObject projectile;
     [SerializeField] private Transform muzzle;
@@ -22,13 +25,21 @@ public class FastShooting : MonoBehaviour, IEquippable
         this.enabled = false;
     }
 
+    public void UpgradeWeapon()
+    {
+        fireRate -= 0.03f;
+        damage += damageUpgrade;
+    }
+
     private void Update()
     {
         cdTimer += Time.deltaTime;
         if (Input.GetKey(KeyCode.Mouse0) && cdTimer >= fireRate)
         {
             cdTimer = 0.0f;
-            Instantiate(projectile, muzzle.position, transform.rotation);
+            BaseProjectile proj = Instantiate(projectile, muzzle.position, transform.rotation).GetComponent<BaseProjectile>();
+            proj.damage = damage;
+            proj.speed = speed;
         }
     }
 }

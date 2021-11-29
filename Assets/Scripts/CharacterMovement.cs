@@ -17,7 +17,7 @@ public class CharacterMovement : MonoBehaviour
     
     [Header("Dash cooldown")] 
     [SerializeField] private Image dashCdImage;
-    [SerializeField] private float dashCD = 1.0f;
+    [SerializeField] public float dashCD = 1.0f;
     private float dashAvailable = 0.0f;
     
 

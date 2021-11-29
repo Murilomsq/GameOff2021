@@ -52,7 +52,6 @@ public class EnemyStand : MonoBehaviour, IDamageable
         {
             for (int i = 0; i < numOfShots; i++)
             {
-                Debug.Log("asadasdasdasdasdadss");
                 Instantiate(projectile, muzzle.position, transform.rotation);
                 animator.Play("Fire");
                 yield return new WaitForSeconds(fireRate);
