@@ -159,15 +159,6 @@ public class PlayerInteractions : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             deathCanvas.SetActive(!deathCanvas.activeSelf);
-            if (deathCanvas.activeSelf)
-            {
-                Time.timeScale = 0;
-            }
-            else
-            {
-                Time.timeScale = 1;
-            }
-            
         }
     }
     
