@@ -51,7 +51,6 @@ public class BaseProjectile : MonoBehaviour
             player.Damage();
             DestroyProj();
         }
-
     }
 
     private void Start()

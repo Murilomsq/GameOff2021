@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -13,6 +12,7 @@ public class MiniBossScript : MonoBehaviour, IDamageable
     [SerializeField] private float aggroRadius = 20.0f;
     [SerializeField] private SpriteRenderer healthImg;
     [SerializeField] private Animator animator;
+    [SerializeField] private AudioClip hit;
     
 
     private Transform target;   // Player transform
@@ -64,6 +64,7 @@ public class MiniBossScript : MonoBehaviour, IDamageable
             if (dist <= nma.stoppingDistance && hitAvailable >= hitCooldown)
             {
                 hitAvailable = 0;
+                PlayerInteractions.Instance.generalAudioSource.PlayOneShot(hit);
                 animator.SetTrigger("Hit");
                 playerInteractions.Damage();
                 animator.SetBool("Running", false);

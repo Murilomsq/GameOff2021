@@ -248,10 +248,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyObj: {fileID: 3516075362965816660}
-  maxHealth: 100
+  maxHealth: 200
   aggroRadius: 54.6
   healthImg: {fileID: 3516075362132405872}
   animator: {fileID: 3516075363082400914}
+  hit: {fileID: 8300000, guid: d7a932355c7955741abf1dae80c51f55, type: 3}
   hitCooldown: 3
 --- !u!54 &3516075362345238774
 Rigidbody:

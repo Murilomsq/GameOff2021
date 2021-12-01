@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Rendering;
 using UnityEngine;
 
 public class FastShooting : MonoBehaviour, IEquippable
@@ -27,7 +26,7 @@ public class FastShooting : MonoBehaviour, IEquippable
 
     public void UpgradeWeapon()
     {
-        fireRate -= 0.03f;
+        fireRate -= 0.015f;
         damage += damageUpgrade;
     }
 
@@ -37,6 +36,7 @@ public class FastShooting : MonoBehaviour, IEquippable
         if (Input.GetKey(KeyCode.Mouse0) && cdTimer >= fireRate)
         {
             cdTimer = 0.0f;
+            PlayerInteractions.Instance.generalAudioSource.PlayOneShot(PlayerInteractions.Instance.machineGunFire);
             BaseProjectile proj = Instantiate(projectile, muzzle.position, transform.rotation).GetComponent<BaseProjectile>();
             proj.damage = damage;
             proj.speed = speed;

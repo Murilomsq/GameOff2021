@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VectorGraphics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerInteractions : MonoBehaviour
@@ -22,6 +24,8 @@ public class PlayerInteractions : MonoBehaviour
     }
     #endregion
 
+    [SerializeField] private PlayerWeapData playerWeapSO;
+    
     public CharacterMovement cm;
     [SerializeField] private GameObject weaponHolder;
     private IEquippable[] weapons = new IEquippable[3];
@@ -35,7 +39,18 @@ public class PlayerInteractions : MonoBehaviour
     public Image weap1Img;
     [SerializeField] private Sprite activeImg;
     [SerializeField] private Sprite unactiveImg;
+    [SerializeField] private GameObject deathCanvas;
     
+
+
+    [Header("Sound")] 
+    public AudioSource ost;
+    public AudioSource footstep;
+    public AudioSource generalAudioSource;
+    public AudioClip fire;
+    public AudioClip dash;
+    public AudioClip bigShotFire;
+    public AudioClip machineGunFire;
 
     [Header("Health sprites")] 
     [SerializeField] private Image battery;
@@ -59,8 +74,10 @@ public class PlayerInteractions : MonoBehaviour
         SetHealthImg();
         if (health == 0)
         {
-            print("GAME OVER");
-            // Game over
+            Destroy(GetComponent<CharacterController>());
+            Destroy(GetComponent<CharacterMovement>());
+            Destroy(weaponHolder);
+            deathCanvas.SetActive(true);
         }
     }
 
@@ -125,8 +142,8 @@ public class PlayerInteractions : MonoBehaviour
         weapons[0] = weaponHolder.GetComponent<ChargeFireball>();
         weapons[1] = weaponHolder.GetComponent<FastShooting>();
         weapons[2] = weaponHolder.GetComponent<BulletRainScript>();
-        
-        EquipPlayerWeapon(0, 2);
+        EquipPlayerWeapon(playerWeapSO.weapOne, playerWeapSO.weapTwo);
+        SwitchWeapTo(0);
     }
 
     private void Update()
@@ -139,5 +156,30 @@ public class PlayerInteractions : MonoBehaviour
         {
             SwitchWeapTo(1);
         }
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            deathCanvas.SetActive(!deathCanvas.activeSelf);
+            if (deathCanvas.activeSelf)
+            {
+                Time.timeScale = 0;
+            }
+            else
+            {
+                Time.timeScale = 1;
+            }
+            
+        }
+    }
+    
+    //Scene stuff (breaking literally all SOLID principles)
+
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene("SampleScene");
+    }
+
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
 }

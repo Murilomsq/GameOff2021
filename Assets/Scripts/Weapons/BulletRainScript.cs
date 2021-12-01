@@ -20,7 +20,7 @@ public class BulletRainScript : MonoBehaviour, IEquippable
     {
         for (int i = 0; i < maxProjectiles; i++)
         {
-            settingsParticle.startColor = new ParticleSystem.MinMaxGradient(new Color(i/30.0f, -(i/30.0f) + 1, 0, 1f));
+            settingsParticle.startColor = new ParticleSystem.MinMaxGradient(new Color((i/(float)maxProjectiles)*0.5686275f, -(i/(float)maxProjectiles) + 1, 0.97f , 1f));
             numOfProjectiles++;
             yield return new WaitForSeconds(chargeRate);
         }
@@ -29,6 +29,10 @@ public class BulletRainScript : MonoBehaviour, IEquippable
     {
         for (int i = 0; i < numOfProjectiles; i++)
         {
+            if (i % 2 == 0) // Dont ask me ...
+            {
+                PlayerInteractions.Instance.generalAudioSource.PlayOneShot(PlayerInteractions.Instance.fire);
+            }
             GameObject go = Instantiate(bullet, transform.position, Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y + Random.Range(-15, 15), transform.rotation.eulerAngles.z));
             go.GetComponent<BaseProjectile>().damage = bulletDmg;
             yield return new WaitForSeconds(fireRate);
@@ -49,10 +53,10 @@ public class BulletRainScript : MonoBehaviour, IEquippable
     public void UpgradeWeapon()
     {
         maxProjectiles += 5;
-        fireRate -= 0.03f;
+        fireRate -= 0.002f;
         chargeRate -= 0.02f;
+        bulletDmg += 5;
     }
-
 
     private void Start()
     {

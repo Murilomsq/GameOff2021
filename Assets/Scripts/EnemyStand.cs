@@ -22,6 +22,8 @@ public class EnemyStand : MonoBehaviour, IDamageable
     private float startingSize;
     [SerializeField] private SpriteRenderer healthImg;
     [SerializeField] private Animator animator;
+    [SerializeField] private AudioClip hit;
+
     private void Start()
     {
         health = maxHealth;
@@ -52,6 +54,7 @@ public class EnemyStand : MonoBehaviour, IDamageable
         {
             for (int i = 0; i < numOfShots; i++)
             {
+                PlayerInteractions.Instance.generalAudioSource.PlayOneShot(hit);
                 Instantiate(projectile, muzzle.position, transform.rotation);
                 animator.Play("Fire");
                 yield return new WaitForSeconds(fireRate);

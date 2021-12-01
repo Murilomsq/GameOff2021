@@ -45,7 +45,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.94
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -100,10 +100,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyObj: {fileID: 5744415446088717882}
-  maxHealth: 1000
-  aggroRadius: 20
+  maxHealth: 600
+  aggroRadius: 69.42
   healthImg: {fileID: 5744415446922280222}
   animator: {fileID: 7496652609844080346}
+  hit: {fileID: 8300000, guid: 2b27fa2a1ae839348b702d193886ed8c, type: 3}
   hitCooldown: 0.5
 --- !u!1 &5744415445800239617
 GameObject:

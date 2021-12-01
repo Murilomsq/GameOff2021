@@ -16,6 +16,12 @@ public class BossBehaviour : MonoBehaviour, IDamageable
     [SerializeField] private Animator animator;
     [SerializeField] private float maxHealth = 20000;
     [SerializeField] private RectTransform healthImg;
+    [SerializeField] private GameObject winningCanvas;
+    [Header("Sound")] 
+    [SerializeField] private AudioSource source;
+    [SerializeField] private AudioClip rain;
+    [SerializeField] private AudioClip bash;
+    
     private float health;
     private float startingSize;
 
@@ -31,6 +37,16 @@ public class BossBehaviour : MonoBehaviour, IDamageable
         print(c.GetComponent<Collider>() + " \\ " + player.gameObject.GetComponent<CharacterController>().GetComponent<Collider>());
         Physics.IgnoreCollision(c.GetComponent<Collider>(), player.gameObject.GetComponent<CharacterController>().GetComponent<Collider>(), true);
         hitAvailable = hitCooldown;
+        StartCoroutine(Behaviour());
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<PlayerInteractions>() != null && hitAvailable >= hitCooldown)
+        {
+            hitAvailable = 0.0f;
+            PlayerInteractions.Instance.Damage();
+        }
     }
 
     private void Update()
@@ -40,24 +56,20 @@ public class BossBehaviour : MonoBehaviour, IDamageable
         {
             transform.LookAt(player);
         }
-        if (Input.GetKeyDown(KeyCode.Mouse1))
-        {
-            StartCoroutine(Dash());
-        }
-        if (Input.GetKeyDown(KeyCode.Mouse2))
+    }
+
+    private IEnumerator Behaviour()
+    {
+        LeanTween.moveY(gameObject, 4.19f, 6.0f);
+        yield return new WaitForSeconds(6.0f);
+        while (true)
         {
             StartCoroutine(SpiralShooting());
+            yield return new WaitForSeconds(2.5f);
+            StartCoroutine(Dash());
+            yield return new WaitForSeconds(4.0f); 
         }
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.GetComponent<PlayerInteractions>() != null && hitAvailable >= hitCooldown)
-        {
-            PlayerInteractions.Instance.Damage();
-        }
-    }
-
 
     private IEnumerator SpiralShooting()
     {
@@ -66,6 +78,7 @@ public class BossBehaviour : MonoBehaviour, IDamageable
         yield return new WaitForSeconds(0.5f);
         for (int i = 0, j = 0; i < 20; i++, j += 5)
         {
+            source.PlayOneShot(rain);
             Instantiate(projectile, position, Quaternion.Euler(0, 0+j, 0));
             Instantiate(projectile, position, Quaternion.Euler(0, 60+j, 0));
             Instantiate(projectile, position, Quaternion.Euler(0, 120+j, 0));
@@ -94,7 +107,8 @@ public class BossBehaviour : MonoBehaviour, IDamageable
                 yield return new WaitForSeconds(1f/16);
             }
         
-            for (int i = 0; i < 16; i++)
+            source.PlayOneShot(bash);
+            for (int i = 0; i < 8; i++)
             {
                 c.Move(v3.normalized * 1f);
                 yield return new WaitForSeconds(0.1f/16);
@@ -112,7 +126,8 @@ public class BossBehaviour : MonoBehaviour, IDamageable
         health -= amount;
         if (health <= 0)
         {
-            Destroy(gameObject);
+            winningCanvas.SetActive(true);
+            Destroy(gameObject, 0.4f);
         }
         Transform ht = healthImg.transform;
         ht.localScale = new Vector3((health / maxHealth) * startingSize, ht.localScale.y, ht.localScale.z);

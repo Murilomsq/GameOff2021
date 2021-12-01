@@ -26,13 +26,13 @@ public class ChargeFireball : MonoBehaviour, IEquippable
     private IEnumerator ChargeRifle()
     {
         shotPower = 0;
-        settingsParticle.startColor = new ParticleSystem.MinMaxGradient(new Color(0, 1, 0, 0.3f));
+        settingsParticle.startColor = new ParticleSystem.MinMaxGradient(new Color(0,0.97f,0.97f, 0.5f));
         yield return new WaitForSeconds(chargeTimer);
         shotPower = 1;
-        settingsParticle.startColor = new ParticleSystem.MinMaxGradient(new Color(0,0,1, 0.3f));
+        settingsParticle.startColor = new ParticleSystem.MinMaxGradient(new Color(0.2960208f,0.4643714f,0.9686275f, 0.5f));
         yield return new WaitForSeconds(chargeTimer);
         shotPower = 2;
-        settingsParticle.startColor = new ParticleSystem.MinMaxGradient(new Color(1,0,0,0.3f));
+        settingsParticle.startColor = new ParticleSystem.MinMaxGradient(new Color(0.5686275f,0,0.97f,0.5f));
     }
     
     public void Equip()
@@ -49,6 +49,7 @@ public class ChargeFireball : MonoBehaviour, IEquippable
     {
         bulletDmg += bulletDmgUpgrade;
         speed += 10.0f;
+        chargeTimer -= 0.1f;
     }
 
     private void Start()
@@ -71,6 +72,7 @@ public class ChargeFireball : MonoBehaviour, IEquippable
                     break;
                 case 2:
                     shotPower = 0;
+                    PlayerInteractions.Instance.generalAudioSource.PlayOneShot(PlayerInteractions.Instance.bigShotFire);
                     BaseProjectile proj = Instantiate(projectile, muzzle.position, transform.rotation).GetComponent<BaseProjectile>();
                     proj.damage = bulletDmg;
                     proj.speed = speed;

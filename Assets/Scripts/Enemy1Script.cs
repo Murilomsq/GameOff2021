@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -13,6 +12,7 @@ public class Enemy1Script : MonoBehaviour, IDamageable
     [SerializeField] private float aggroRadius = 20.0f;
     [SerializeField] private SpriteRenderer healthImg;
     [SerializeField] private Animator animator;
+    [SerializeField] private AudioClip hit;
     
 
     private Transform target;   // Player transform
@@ -50,7 +50,7 @@ public class Enemy1Script : MonoBehaviour, IDamageable
         playerInteractions = PlayerInteractions.Instance;
         nma = GetComponent<NavMeshAgent>();
         startingSize = healthImg.transform.localScale.x;
-        hitAvailable = hitCooldown;
+        hitAvailable = hitCooldown - 1.0f;
     }
 
     private void Update()
@@ -63,6 +63,7 @@ public class Enemy1Script : MonoBehaviour, IDamageable
             nma.SetDestination(target.position);
             if (dist <= nma.stoppingDistance && hitAvailable >= hitCooldown)
             {
+                PlayerInteractions.Instance.generalAudioSource.PlayOneShot(hit);
                 hitAvailable = 0;
                 Debug.Log("Hit");
                 animator.SetTrigger("Hit");

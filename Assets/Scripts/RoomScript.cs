@@ -1,7 +1,4 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Rendering;
 using UnityEngine;
 
 public class RoomScript : MonoBehaviour
@@ -18,7 +15,6 @@ public class RoomScript : MonoBehaviour
             {
                 blocker.SetActive(true);
             }
-            Debug.Log(waves[0]);
             waves[0].SetActive(true);
         }
     }

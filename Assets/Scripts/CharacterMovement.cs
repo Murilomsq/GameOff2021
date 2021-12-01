@@ -25,6 +25,7 @@ public class CharacterMovement : MonoBehaviour
     {
         dashParticles.Play();
         Vector3 V3 = transform.position;
+        PlayerInteractions.Instance.generalAudioSource.PlayOneShot(PlayerInteractions.Instance.dash);
         for (int i = 0; i < 16; i++)
         {
             c.Move(v3.normalized * 0.3f);

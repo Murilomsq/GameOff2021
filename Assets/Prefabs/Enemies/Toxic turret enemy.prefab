@@ -343,9 +343,10 @@ MonoBehaviour:
   fireRate: 0.2
   numOfShots: 3
   muzzle: {fileID: 790179981178661752}
-  maxHealth: 200
+  maxHealth: 130
   healthImg: {fileID: 790179981865554604}
   animator: {fileID: 1310751583}
+  hit: {fileID: 8300000, guid: 38e54c2742a80a941a7ded0abf6dea8e, type: 3}
 --- !u!1 &790179982726783975
 GameObject:
   m_ObjectHideFlags: 0

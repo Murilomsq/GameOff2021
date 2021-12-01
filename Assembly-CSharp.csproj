@@ -77,6 +77,7 @@
      <Compile Include="Assets\Scripts\SimpleCameraController.cs" />
      <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_RandomDir.cs" />
      <Compile Include="Assets\ParticleShadersVol1\SampleSceneAssets\Scripts\EMUI.cs" />
+     <Compile Include="Assets\Scripts\BossRoom.cs" />
      <Compile Include="Assets\ParticleShadersVol1\SampleSceneAssets\Scripts\LightRig.cs" />
      <Compile Include="Assets\Scripts\Seller.cs" />
      <Compile Include="Assets\LeanTween\Examples\Scripts\TestingZLegacy.cs" />
@@ -96,6 +97,7 @@
      <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralCameraShake.cs" />
      <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_RotateCamera.cs" />
      <Compile Include="Assets\Ultimate 10 Plus Shaders\Scripts\U10PS_MouseRotation.cs" />
+     <Compile Include="Assets\ScriptableObj\PlayerWeapData.cs" />
      <Compile Include="Assets\LeanTween\Examples\Archived\TestingPunch.cs" />
      <Compile Include="Assets\Scripts\Weapons\FastShooting.cs" />
      <Compile Include="Assets\LeanTween\Framework\LeanAudio.cs" />
@@ -103,6 +105,7 @@
      <Compile Include="Assets\ParticleShadersVol1\SampleSceneAssets\Scripts\EMUI_Animations.cs" />
      <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
      <Compile Include="Assets\LeanTween\Examples\Scripts\PathSpline.cs" />
+     <Compile Include="Assets\ScriptableObj\MainMenu.cs" />
      <Compile Include="Assets\ParticleShadersVol1\SampleSceneAssets\Scripts\CameraRig.cs" />
      <Compile Include="Assets\Scripts\Weapons\Interfaces\IEquippable.cs" />
      <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralAdvancedTechniques.cs" />
