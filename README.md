@@ -1,8 +1,8 @@
 
 
 
-###### Disclaimer:
-###### *Everything in this code was made in an absurd short amount of time and there are some really bad architectures, implementations and solutions for the sake of realeasing the game in one month*
+# Disclaimer:
+# *Everything in this code was made in an absurd short amount of time and there are some really bad architectures, implementations and solutions for the sake of realeasing the game in one month*
 
 
 # Blue Screen
